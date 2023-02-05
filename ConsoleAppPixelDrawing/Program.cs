@@ -186,6 +186,11 @@ void CursorProcess(Pixel[,] field, ConsoleKey key, ref Cursor cursor)
     }
 }
 
+ConsoleKey ReadKey()
+{
+    return Console.ReadKey(false).Key;
+}
+
 //------
 
 int rows = InputInt("Введите количество строк (от 10 до 20): ", 10, 20);
@@ -199,6 +204,6 @@ FillField(field);
 while (true)
 {
     ShowField(field, cursor);
-    ConsoleKey key = Console.ReadKey(false).Key;
+    ConsoleKey key = ReadKey();
     CursorProcess(field, key, ref cursor);
 }
