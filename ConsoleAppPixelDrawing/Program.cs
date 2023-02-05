@@ -40,6 +40,7 @@ Cursor CreateCursor()
     cursor.I = 1;
     cursor.J = 1;
     cursor.Skin = 'K';
+    cursor.StepSkin = (char)ConstSkin.FilledCell1;
     return cursor;
 }
 
@@ -150,7 +151,7 @@ void CursorProcess(Pixel[,] field, ConsoleKey key, ref Cursor cursor)
             break;
 
         case ConsoleKey.Spacebar:
-            field[cursor.I, cursor.J].Skin = (char)ConstSkin.FilledCell;
+            field[cursor.I, cursor.J].Skin = cursor.StepSkin;
             field[cursor.I, cursor.J].Color = cursor.Color;
             break;
 
@@ -169,6 +170,18 @@ void CursorProcess(Pixel[,] field, ConsoleKey key, ref Cursor cursor)
         
         case ConsoleKey.D3:
             cursor.Color = (ConsoleColor)ConstColor.Blue;
+            break;
+        
+        case ConsoleKey.D4:
+            cursor.StepSkin = (char)ConstSkin.FilledCell1;
+            break;
+        
+        case ConsoleKey.D5:
+            cursor.StepSkin = (char)ConstSkin.FilledCell2;
+            break;
+        
+        case ConsoleKey.D6:
+            cursor.StepSkin = (char)ConstSkin.FilledCell3;
             break;
     }
 }
